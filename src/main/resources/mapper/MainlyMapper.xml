@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.miujoke.mapper.MainlyMapper">
+    <insert id="saveMainly" parameterType="com.miujoke.entity.Mainly">
+        insert into sys_mainly(img,name,introduce,address) values (#{img},#{name},#{introduce},#{address})
+    </insert>
+
+    <delete id="deleteMainly" parameterType="java.lang.Integer" >
+        delete from sys_mainly where id=#{id}
+    </delete>
+
+    <update id="updateMainly" parameterType="com.miujoke.entity.Mainly">
+        update sys_mainly set introduce = #{introduce},address = #{address} where name = #{name}
+    </update>
+
+    <!--前端页面获取接口-->
+    <select id="getMainlyIndex" resultType="com.miujoke.entity.Mainly">
+        SELECT * FROM sys_mainly
+    </select>
+
+</mapper>

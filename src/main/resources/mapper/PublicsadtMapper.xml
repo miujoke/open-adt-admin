@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.miujoke.mapper.PublicsadtMapper">
+    <delete id="deletePublic" parameterType="java.lang.Integer" >
+        delete from sys_publicsadt where psa_id=#{id}
+    </delete>
+
+    <insert id="savePublic" parameterType="com.miujoke.entity.Publicsadt">
+        insert into sys_publicsadt(psa_img,psa_name,psa_introduce,psa_address) values (#{psaImg},#{psaName},#{psaIntroduce},#{psaAddress})
+    </insert>
+
+    <update id="updatePublic" parameterType="com.miujoke.entity.Publicsadt">
+        update sys_publicsadt set psa_introduce = #{psaIntroduce},psa_address = #{psaAddress} where psa_name = #{psaName}
+    </update>
+
+    <select id="getPublicIndex" resultType="com.miujoke.entity.Publicsadt">
+        SELECT * FROM sys_publicsadt
+    </select>
+
+</mapper>

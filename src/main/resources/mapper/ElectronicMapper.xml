@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.miujoke.mapper.ElectronicMapper">
+
+    <select id="getElectronic" resultType="com.miujoke.entity.Electronic">
+        SELECT * FROM sys_electronic
+    </select>
+
+    <insert id="saveEle" parameterType="com.miujoke.entity.Electronic">
+        insert into sys_electronic(ele_img,ele_name,ele_introduce,ele_address) values (#{eleImg},#{eleName},#{eleIntroduce},#{eleAddress})
+    </insert>
+    <delete id="deleteEle" parameterType="java.lang.Integer" >
+        delete from sys_electronic where ele_id=#{id}
+    </delete>
+
+    <update id="updateEle" parameterType="com.miujoke.entity.Electronic">
+        update sys_electronic set ele_introduce = #{eleIntroduce},ele_address = #{eleAddress} where ele_name = #{eleName}
+    </update>
+
+
+</mapper>
